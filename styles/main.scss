@@ -1,0 +1,40 @@
+//@import "abstracts/reset";
+//@import "abstracts/variables";
+//@import "abstracts/utils";
+//
+//@import "vendors/vue-js-modal";
+//
+//@import "base/animations";
+//@import "base/fonts";
+//@import "base/gradients";
+//@import "base/shadows";
+//@import "base/typography";
+//
+//@import "pages/home";
+//@import "pages/login";
+//@import "pages/publish";
+//
+//@import "components/avatar";
+//@import "components/buttons";
+//@import "components/captcha-badge";
+//@import "components/checkbox";
+//@import "components/gallery";
+//@import "components/gamification";
+//@import "components/inputs";
+//@import "components/link";
+//@import "components/list";
+//@import "components/menu";
+//@import "components/password-input";
+//@import "components/spinner";
+//@import "components/tags";
+//@import "components/warning";
+//
+//@import "themes/dark";
+//@import "themes/light";
+//
+//@import "vendors-extensions/vue-js-modal";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+

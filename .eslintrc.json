@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "@nuxtjs/eslint-config-typescript",
+    "prettier",
+    "prettier/vue"
+  ],
+  "rules": {
+    "no-alert": "warn",
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "curly": "error"
+  }
+}
