@@ -5,16 +5,15 @@
   "author": "Daniel Gomez Pan",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "test": "jest"
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "generate": "nuxt-ts generate",
+    "start": "nuxt-ts start"
   },
   "lint-staged": {
-    "*.{js,vue}": "yarn lint",
-    "*.{css,vue}": "stylelint"
+    "*.{ts,vue}": "yarn lint",
+    "*.{css,scss,vue}": "stylelint"
   },
   "husky": {
     "hooks": {
@@ -22,33 +21,33 @@
     }
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/dotenv": "^1.4.0",
-    "@nuxtjs/pwa": "^3.0.0-0",
-    "node-sass": "^4.14.1",
-    "nuxt": "^2.0.0",
-    "nuxt-property-decorator": "^2.7.2",
-    "sass-loader": "^8.0.2"
+    "@nuxt/typescript-runtime": "^2.0.0",
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/pwa": "^3.2.2",
+    "inversify-props": "^2.2.6",
+    "nuxt": "^2.14.6",
+    "nuxt-property-decorator": "^2.8.8",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
-    "@nuxt/typescript-build": "^0.6.0",
-    "@nuxtjs/eslint-config-typescript": "^1.0.0",
-    "@nuxtjs/eslint-module": "^1.0.0",
-    "@nuxtjs/stylelint-module": "^3.1.0",
-    "@nuxtjs/tailwindcss": "^1.0.0",
-    "@vue/test-utils": "^1.0.0-beta.27",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.1.0",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-nuxt": ">=0.4.2",
-    "eslint-plugin-prettier": "^3.1.2",
-    "husky": "^4.0.0",
-    "jest": "^24.1.0",
-    "lint-staged": "^10.0.0",
-    "prettier": "^1.19.1",
-    "stylelint": "^10.1.0",
-    "ts-jest": "^25.0.0",
-    "vue-jest": "^4.0.0-0"
+    "@nuxt/types": "^2.14.6",
+    "@nuxt/typescript-build": "^2.0.3",
+    "@nuxtjs/eslint-config-typescript": "^3.0.0",
+    "@nuxtjs/router": "^1.5.0",
+    "@nuxtjs/stylelint-module": "^4.0.0",
+    "@nuxtjs/tailwindcss": "^3.1.0",
+    "@vue/test-utils": "^1.1.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.12.0",
+    "husky": "^4.3.0",
+    "jest": "^26.5.3",
+    "lint-staged": "^10.4.0",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.1.2",
+    "sass-loader": "^10.0.3",
+    "stylelint": "^13.7.2",
+    "ts-jest": "^26.4.1",
+    "vue-jest": "^3.0.7"
   }
 }
