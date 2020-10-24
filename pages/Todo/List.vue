@@ -6,18 +6,18 @@
 
 <script lang="ts">
 import { lazyInject } from '@/src/shared/infrastructure/container/Container';
+import { List as TodoList } from '@/src/todo/application/List';
 import { SYMBOLS } from '@/src/shared/infrastructure/container/Types';
-import { TodoRepository } from '@/src/todo/domain/TodoRepository';
 import { Component } from 'nuxt-property-decorator';
 import Vue from 'vue';
 
 @Component({})
 export default class List extends Vue {
-  @lazyInject(SYMBOLS.TodoRepository)
-  private todoRepository!: TodoRepository;
+  @lazyInject(SYMBOLS.TodoList)
+  private todoList!: TodoList;
 
   get todos(): string[] {
-    return this.todoRepository.getAll();
+    return this.todoList.execute();
   }
 }
 </script>

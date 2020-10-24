@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { SYMBOLS } from '@/src/shared/infrastructure/container/Types';
-import { TodoRepository } from '@/src/todo/domain/TodoRepository';
+import { Create as TodoCreate } from '@/src/todo/application/Create';
 import { Component } from 'nuxt-property-decorator';
 import Vue from 'vue';
 import { Todo } from '@/store/TodoStore';
@@ -35,11 +35,11 @@ export default class Create extends Vue {
     task: '',
   };
 
-  @lazyInject(SYMBOLS.TodoRepository)
-  private todoRepository!: TodoRepository;
+  @lazyInject(SYMBOLS.TodoCreate)
+  private todoCreate!: TodoCreate;
 
   public addTask(): void {
-    this.todoRepository.add(this.todo.task);
+    this.todoCreate.execute(this.todo.task);
     this.todo.task = '';
   }
 }
