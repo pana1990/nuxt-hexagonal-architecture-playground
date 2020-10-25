@@ -1,7 +1,8 @@
+import 'reflect-metadata';
 import { SYMBOLS } from '@/src/shared/infrastructure/container/Types';
-import { Create } from '@/src/todo/application/Create';
-import { List } from '@/src/todo/application/List';
-import { TodoRepository } from '@/src/todo/domain/TodoRepository';
+import { Create } from '@/src/todo/application/create/Create';
+import { List } from '@/src/todo/application/list/List';
+import TodoRepository from '@/src/todo/domain/TodoRepository';
 import { InMemoryTodoRepository } from '@/src/todo/infrastructure/InMemoryTodoRepository';
 import { Container } from 'inversify';
 import getDecorators from 'inversify-inject-decorators';

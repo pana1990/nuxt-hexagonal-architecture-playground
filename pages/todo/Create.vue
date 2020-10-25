@@ -2,7 +2,7 @@
   <form class="w-full max-w-sm">
     <div class="flex items-center border-b border-teal-500 py-2">
       <input
-        v-model="todo.task"
+        v-model="form.task"
         class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
         type="text"
         placeholder="task"
@@ -20,27 +20,21 @@
 </template>
 
 <script lang="ts">
-import { SYMBOLS } from '@/src/shared/infrastructure/container/Types';
-import { Create as TodoCreate } from '@/src/todo/application/Create';
 import { Component } from 'nuxt-property-decorator';
 import Vue from 'vue';
-import { Todo } from '@/store/TodoStore';
-import { lazyInject } from '@/src/shared/infrastructure/container/Container';
+import { todoStore } from '@/store';
 
 @Component({
   components: {},
 })
 export default class Create extends Vue {
-  todo: Todo = {
+  form = {
     task: '',
   };
 
-  @lazyInject(SYMBOLS.TodoCreate)
-  private todoCreate!: TodoCreate;
-
   public addTask(): void {
-    this.todoCreate.execute(this.todo.task);
-    this.todo.task = '';
+    todoStore.addTodo(this.form.task);
+    this.form.task = '';
   }
 }
 </script>

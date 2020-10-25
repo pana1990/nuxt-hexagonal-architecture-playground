@@ -22,8 +22,8 @@
 import { Component } from 'nuxt-property-decorator';
 import Vue from 'vue';
 import Logo from '@/components/Logo.vue';
-import Create from '@/pages/Todo/Create.vue';
-import List from '@/pages/Todo/List.vue';
+import Create from '@/pages/todo/Create.vue';
+import List from '@/pages/todo/List.vue';
 
 @Component({
   components: { Logo, List, Create },

@@ -15,5 +15,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'no-useless-constructor': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'no-unused-vars': 'off',
   },
 };

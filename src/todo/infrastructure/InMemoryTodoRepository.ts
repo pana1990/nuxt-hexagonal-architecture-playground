@@ -1,15 +1,17 @@
 import { injectable } from 'inversify';
-import { TodoRepository } from '@/src/todo/domain/TodoRepository';
-import { todoStore } from '@/store';
+import TodoRepository from '@/src/todo/domain/TodoRepository';
 
 @injectable()
 export class InMemoryTodoRepository implements TodoRepository {
+  private static _todos: string[] = [];
+
   add(task: string): Promise<void> {
-    todoStore.addTodo(task);
+    InMemoryTodoRepository._todos.push(task);
+
     return Promise.resolve();
   }
 
   getAll(): string[] {
-    return todoStore.todos;
+    return InMemoryTodoRepository._todos;
   }
 }
