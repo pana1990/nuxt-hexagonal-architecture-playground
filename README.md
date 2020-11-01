@@ -1,7 +1,5 @@
 # nuxt-hexagonal-architecture-playground
 
-> My hunky-dory Nuxt.js project
-
 ## Build Setup
 
 ```bash

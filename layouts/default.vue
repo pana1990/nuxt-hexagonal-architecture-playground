@@ -1,6 +1,6 @@
 <template>
-  <div class="container flex flex-center">
-    <nuxt />
+  <div>
+    <Nuxt />
   </div>
 </template>
 
@@ -15,13 +15,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
 }
