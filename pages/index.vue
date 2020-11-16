@@ -1,8 +1,8 @@
 <template>
   <div class="container flex items-center justify-center m-auto mt-12">
     <div>
-      <header class="">
-        <Logo class="" />
+      <header>
+        <Logo />
         <h1 class="text-2xl text-gray-900 font-extrabold mt-2">
           nuxt-hexagonal-architecture-playground
         </h1>

@@ -15,14 +15,14 @@ export default class TodoStore extends VuexModule {
 
   @Mutation
   updateTodos() {
-    const listResponse = container.get<List>(SYMBOLS.TodoList).ask();
+    const listResponse = container.get<List>(SYMBOLS.TODO_LIST).ask();
     this._todos = listResponse.todoList;
   }
 
   @Action
   async addTodo(todo: string) {
     const createCommand = new CreateCommand(todo);
-    await container.get<Create>(SYMBOLS.TodoCreate).dispatch(createCommand);
+    await container.get<Create>(SYMBOLS.TODO_CREATE).dispatch(createCommand);
     this.updateTodos();
   }
 
