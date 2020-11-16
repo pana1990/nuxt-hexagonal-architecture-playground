@@ -1,4 +1,6 @@
+import Todo from '@/src/todo/domain/Todo';
+
 export default interface TodoRepository {
-  getAll(): string[];
-  add(task: string): Promise<void>;
+  getAll(): Todo[];
+  add(todo: Todo): Promise<void>;
 }
