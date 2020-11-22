@@ -18,11 +18,11 @@
 # Instalamos las dependencias
 $ yarn install
 
-# Arracna el servidor de desarrollo en modo "hot reload" en [localhost:3000](http://localhost:3000)
+# Arracna el servidor de desarrollo en modo "hot reload" en http://localhost:3000
 $ yarn dev
-
-# Ahora puedes verificar que todo funciona entrando en tu navegador a la url http://localhost:3000
 ```
+
+Ahora puedes verificar que todo funciona accediendo a [http://localhost:3000](http://localhost:3000)
 
 ## 💪 Motivación 
 
