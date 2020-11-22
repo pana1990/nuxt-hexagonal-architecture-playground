@@ -34,7 +34,9 @@ TODO
 
 Es un Todo App para la gestión de tareas.
 
-![](docs/docs/hello_world.gif)
+<p align="center">
+  <img src="docs/hello_world.gif" alt="app" width="80%">
+</p>
 
 ### Estructura de carpetas
 
@@ -59,9 +61,9 @@ src
 
 ## ✅ Tareas para el futuro
 
-[] Añadir tests unitarios, de integración y e2e.
-[] Añadir casos de uso más complejos para poder exponer de mejor forma el aporte de esta arquitectura.
-[] Añadir wiki explicando como pasar de un proyecto legacy a hexagonal, argumentando cada paso con sus pros y contras.
+* [ ] Añadir tests unitarios, de integración y e2e.
+* [ ] Añadir casos de uso más complejos para poder exponer de mejor forma el aporte de esta arquitectura.
+* [ ] Añadir wiki explicando como pasar de un proyecto legacy a hexagonal, argumentando cada paso con sus pros y contras.
 
 ## 🧑‍🤝‍🧑 Contribuir
 
