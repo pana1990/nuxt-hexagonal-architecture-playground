@@ -7,7 +7,7 @@ import TodoRepository from '@/src/todo/domain/TodoRepository';
 import { inject, injectable } from 'inversify';
 
 @injectable()
-export class List implements QueryHandler {
+export class ListHandler implements QueryHandler {
   constructor(
     @inject(SYMBOLS.TODO_REPOSITORY)
     private readonly todoRepository: TodoRepository
@@ -16,7 +16,7 @@ export class List implements QueryHandler {
   ask(query?: Query): ListResponse {
     const todos = this.todoRepository.getAll();
 
-    return new ListResponse(todos.map(List.mappingTodosToArray()));
+    return new ListResponse(todos.map(ListHandler.mappingTodosToArray()));
   }
 
   private static mappingTodosToArray() {

@@ -6,8 +6,13 @@ export default class Todo {
   constructor(
     private readonly _id: TodoId,
     private readonly _body: TodoBody,
+    private readonly _done: boolean,
     private readonly _createdAt: TodoCreatedAt
   ) {}
+
+  get id(): TodoId {
+    return this._id;
+  }
 
   get body(): TodoBody {
     return this._body;
@@ -18,6 +23,6 @@ export default class Todo {
   }
 
   static create(todoId: TodoId, todoBody: TodoBody) {
-    return new Todo(todoId, todoBody, Date.now());
+    return new Todo(todoId, todoBody, false, Date.now());
   }
 }

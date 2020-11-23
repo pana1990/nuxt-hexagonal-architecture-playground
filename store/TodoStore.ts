@@ -1,8 +1,8 @@
 import { container } from '@/src/shared/infrastructure/container/Container';
 import { SYMBOLS } from '@/src/shared/infrastructure/container/Types';
-import { Create } from '@/src/todo/application/create/Create';
+import { CreateHandler } from '@/src/todo/application/create/CreateHandler';
 import CreateCommand from '@/src/todo/application/create/CreateCommand';
-import { List } from '@/src/todo/application/list/List';
+import { ListHandler } from '@/src/todo/application/list/ListHandler';
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 
 @Module({
@@ -15,14 +15,14 @@ export default class TodoStore extends VuexModule {
 
   @Mutation
   updateTodos() {
-    const listResponse = container.get<List>(SYMBOLS.TODO_LIST).ask();
+    const listResponse = container.get<ListHandler>(SYMBOLS.TODO_LIST).ask();
     this._todos = listResponse.todoList;
   }
 
-  @Action
-  async addTodo(todo: string) {
+  @Action({ rawError: true })
+  addTodo(todo: string) {
     const createCommand = new CreateCommand(todo);
-    await container.get<Create>(SYMBOLS.TODO_CREATE).dispatch(createCommand);
+    container.get<CreateHandler>(SYMBOLS.TODO_CREATE).dispatch(createCommand);
     this.updateTodos();
   }
 

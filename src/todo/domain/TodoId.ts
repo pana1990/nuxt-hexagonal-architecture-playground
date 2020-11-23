@@ -4,4 +4,8 @@ export default class TodoId {
   get value(): string {
     return this._value;
   }
+
+  equals(todoId: TodoId): boolean {
+    return todoId.value === this.value;
+  }
 }

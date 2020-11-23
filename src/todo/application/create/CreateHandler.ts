@@ -9,7 +9,7 @@ import TodoRepository from '@/src/todo/domain/TodoRepository';
 import { inject, injectable } from 'inversify';
 
 @injectable()
-export class Create implements CommandHandler {
+export class CreateHandler implements CommandHandler {
   constructor(
     @inject(SYMBOLS.TODO_REPOSITORY)
     private readonly todoRepository: TodoRepository,
@@ -17,11 +17,11 @@ export class Create implements CommandHandler {
     private readonly uuidGenerator: UuidGenerator
   ) {}
 
-  dispatch(command: CreateCommand): Promise<void> {
+  dispatch(command: CreateCommand): void {
     const todoId = new TodoId(this.uuidGenerator.generate());
     const todoBody = new TodoBody(command.todoBody);
     const todo = Todo.create(todoId, todoBody);
 
-    return this.todoRepository.add(todo);
+    this.todoRepository.save(todo);
   }
 }
