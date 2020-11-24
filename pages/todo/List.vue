@@ -14,14 +14,13 @@
 </template>
 
 <script lang="ts">
-import { ListResponseCollection } from '@/src/todo/application/list/ListResponseCollection';
 import { Component } from 'nuxt-property-decorator';
 import Vue from 'vue';
 import { todoStore } from '@/store';
 
 @Component({})
 export default class List extends Vue {
-  get todos(): ListResponseCollection[] {
+  get todos(): ListResponse[] {
     return todoStore.todos.data;
   }
 
