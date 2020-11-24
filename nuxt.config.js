@@ -14,7 +14,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['plugins/bind-inversify-deps'],
+  plugins: ['plugins/bind-inversify-deps', 'plugins/filters/format-date'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

@@ -1,7 +1,7 @@
 export default class TodoId {
-  constructor(private readonly _value: string) {}
+  constructor(readonly value: string) {}
 
-  get value(): string {
-    return this._value;
+  equals(todoId: TodoId): boolean {
+    return todoId.value === this.value;
   }
 }

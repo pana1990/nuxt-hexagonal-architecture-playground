@@ -1,8 +1,11 @@
 import { container } from '@/src/shared/infrastructure/container/Container';
 import { SYMBOLS } from '@/src/shared/infrastructure/container/Types';
-import { Create } from '@/src/todo/application/create/Create';
+import { CompleteTodoCommand } from '@/src/todo/application/completeTodo/CompleteTodoCommand';
+import { CompleteTodoHandler } from '@/src/todo/application/completeTodo/CompleteTodoHandler';
+import { CreateHandler } from '@/src/todo/application/create/CreateHandler';
 import CreateCommand from '@/src/todo/application/create/CreateCommand';
-import { List } from '@/src/todo/application/list/List';
+import { ListHandler } from '@/src/todo/application/list/ListHandler';
+import { ListResponseCollection } from '@/src/todo/application/list/ListResponseCollection';
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 
 @Module({
@@ -11,22 +14,30 @@ import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
   namespaced: true,
 })
 export default class TodoStore extends VuexModule {
-  _todos: string[] = [];
+  _todos: ListResponseCollection = new ListResponseCollection([]);
 
   @Mutation
   updateTodos() {
-    const listResponse = container.get<List>(SYMBOLS.TODO_LIST).ask();
-    this._todos = listResponse.todoList;
+    this._todos = container.get<ListHandler>(SYMBOLS.TODO_LIST).ask();
   }
 
   @Action
-  async addTodo(todo: string) {
+  addTodo(todo: string) {
     const createCommand = new CreateCommand(todo);
-    await container.get<Create>(SYMBOLS.TODO_CREATE).dispatch(createCommand);
+    container.get<CreateHandler>(SYMBOLS.TODO_CREATE).dispatch(createCommand);
     this.updateTodos();
   }
 
-  get todos(): string[] {
+  @Action
+  completeTodo(todoId: string) {
+    const completeTodoCommand = new CompleteTodoCommand(todoId);
+    container
+      .get<CompleteTodoHandler>(SYMBOLS.TODO_COMPLETE_TODO)
+      .dispatch(completeTodoCommand);
+    this.updateTodos();
+  }
+
+  get todos(): ListResponseCollection {
     return this._todos;
   }
 }

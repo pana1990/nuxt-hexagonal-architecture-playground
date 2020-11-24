@@ -1,3 +1,3 @@
 export default class TodoCreatedAt {
-  constructor(value: Date) {}
+  constructor(readonly value: Date) {}
 }
