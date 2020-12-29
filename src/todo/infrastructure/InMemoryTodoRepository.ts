@@ -8,21 +8,22 @@ import { TodoNotFoundError } from '@/src/todo/domain/TodoNotFoundError';
 export class InMemoryTodoRepository implements TodoRepository {
   private readonly _todos = new Map<string, Todo>();
 
-  save(todo: Todo): void {
+  save(todo: Todo): Promise<void> {
     this._todos.set(todo.id.value, todo);
+    return Promise.resolve();
   }
 
-  find(todoId: TodoId): Todo {
+  find(todoId: TodoId): Promise<Todo> {
     const todo = this._todos.get(todoId.value);
 
     if (!todo) {
       throw new TodoNotFoundError(todoId.value);
     }
 
-    return todo;
+    return Promise.resolve(todo);
   }
 
-  getAll(): Todo[] {
-    return Array.from(this._todos.values());
+  getAll(): Promise<Todo[]> {
+    return Promise.resolve(Array.from(this._todos.values()));
   }
 }

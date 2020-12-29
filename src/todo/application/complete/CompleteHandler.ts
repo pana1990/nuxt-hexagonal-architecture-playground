@@ -14,9 +14,10 @@ export class CompleteHandler implements CommandHandler {
 
   dispatch(command: CompleteCommand): void {
     const todoId = new TodoId(command.todoId);
-    const todo = this.todoRepository.find(todoId);
 
-    todo.done();
-    this.todoRepository.save(todo);
+    this.todoRepository.find(todoId).then((todo) => {
+      todo.done();
+      this.todoRepository.save(todo).then();
+    });
   }
 }

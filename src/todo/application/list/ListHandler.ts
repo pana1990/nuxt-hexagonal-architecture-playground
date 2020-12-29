@@ -14,21 +14,19 @@ export class ListHandler implements QueryHandler {
     private readonly todoRepository: TodoRepository
   ) {}
 
-  ask(query?: Query): ListResponseCollection {
-    const todos = this.todoRepository.getAll();
+  async ask(query?: Query): Promise<ListResponseCollection> {
+    const todos = await this.todoRepository.getAll();
 
-    return new ListResponseCollection(
-      todos.map(ListHandler.mappingTodosToArray())
-    );
+    return new ListResponseCollection(todos.map(ListHandler.mapTodoToList()));
   }
 
-  private static mappingTodosToArray() {
+  private static mapTodoToList() {
     return (todo: Todo) => {
       return new ListResponse(
         todo.id.value,
         todo.body.value,
-        todo.isDone,
-        todo.createdAt.value
+        todo.createdAt.value,
+        todo.isDone
       );
     };
   }
