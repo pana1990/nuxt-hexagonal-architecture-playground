@@ -17,6 +17,7 @@
 import { Component } from 'nuxt-property-decorator';
 import Vue from 'vue';
 import { todoStore } from '@/store';
+import ListResponse from '@/src/todo/application/list/ListResponse';
 
 @Component({})
 export default class List extends Vue {

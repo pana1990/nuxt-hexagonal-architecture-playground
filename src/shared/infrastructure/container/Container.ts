@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import UuidGenerator from '@/src/shared/domain/uuid/UuidGenerator';
 import { SYMBOLS } from '@/src/shared/infrastructure/container/Types';
 import V4UuidGenerator from '@/src/shared/infrastructure/uuid/V4UuidGenerator';
-import { CompleteTodoHandler } from '@/src/todo/application/completeTodo/CompleteTodoHandler';
+import { CompleteHandler } from '@/src/todo/application/complete/CompleteHandler';
 import { CreateHandler } from '@/src/todo/application/create/CreateHandler';
 import { ListHandler } from '@/src/todo/application/list/ListHandler';
 import TodoRepository from '@/src/todo/domain/TodoRepository';
@@ -22,8 +22,8 @@ container
   .to(CreateHandler)
   .inSingletonScope();
 container
-  .bind<CompleteTodoHandler>(SYMBOLS.TODO_COMPLETE_TODO)
-  .to(CompleteTodoHandler)
+  .bind<CompleteHandler>(SYMBOLS.TODO_COMPLETE_TODO)
+  .to(CompleteHandler)
   .inSingletonScope();
 container
   .bind<ListHandler>(SYMBOLS.TODO_LIST)

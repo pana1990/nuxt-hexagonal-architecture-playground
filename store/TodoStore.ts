@@ -1,7 +1,7 @@
 import { container } from '@/src/shared/infrastructure/container/Container';
 import { SYMBOLS } from '@/src/shared/infrastructure/container/Types';
-import { CompleteTodoCommand } from '@/src/todo/application/completeTodo/CompleteTodoCommand';
-import { CompleteTodoHandler } from '@/src/todo/application/completeTodo/CompleteTodoHandler';
+import { CompleteCommand } from '@/src/todo/application/complete/CompleteCommand';
+import { CompleteHandler } from '@/src/todo/application/complete/CompleteHandler';
 import { CreateHandler } from '@/src/todo/application/create/CreateHandler';
 import CreateCommand from '@/src/todo/application/create/CreateCommand';
 import { ListHandler } from '@/src/todo/application/list/ListHandler';
@@ -30,9 +30,9 @@ export default class TodoStore extends VuexModule {
 
   @Action
   completeTodo(todoId: string) {
-    const completeTodoCommand = new CompleteTodoCommand(todoId);
+    const completeTodoCommand = new CompleteCommand(todoId);
     container
-      .get<CompleteTodoHandler>(SYMBOLS.TODO_COMPLETE_TODO)
+      .get<CompleteHandler>(SYMBOLS.TODO_COMPLETE_TODO)
       .dispatch(completeTodoCommand);
     this.updateTodos();
   }

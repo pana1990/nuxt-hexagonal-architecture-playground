@@ -1,6 +1,5 @@
 import DomainError from '@/src/shared/domain/error/DomainError';
-// @ts-ignore
-import { v4 } from 'uuid';
+import { v4, validate } from 'uuid';
 
 class UuidIsInvalid extends DomainError {
   constructor(value: string) {
@@ -11,14 +10,13 @@ class UuidIsInvalid extends DomainError {
 export default abstract class Uuid {
   readonly value: string;
 
-  protected constructor(private value: string) {
+  protected constructor(value: string) {
     Uuid.ensureIsValidUuid(value);
-
     this.value = value;
   }
 
   private static ensureIsValidUuid(value: string) {
-    if (!v4().validate(value)) {
+    if (!validate(value)) {
       throw new UuidIsInvalid(value);
     }
   }
